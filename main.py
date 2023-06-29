@@ -4,16 +4,15 @@ import json
 
 link_dic = {}
 
-for i in range(1,533):
+## 문제갯수
+for i in range(1,550):
     link_dic[i] = []
 
-
+## 페이지 갯수
 for i in range(1,533):
-
 
     html = Request("https://www.examtopics.com/discussions/amazon/"+str(i)+"/",headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})  
     webpage = urlopen(html).read()
-
 
     bsObject = BeautifulSoup(webpage, "html.parser") 
 
@@ -33,8 +32,9 @@ for i in range(1,533):
         temp2 = link.get('href')
         temp3 = temp1.split()
         if "Exam AWS Certified Solutions Architect - Associate SAA-C03" in temp1:
-            link_dic[temp3[11]].append("https://www.examtopics.com"+temp2)
+            link_dic[int(temp3[11])].append("https://www.examtopics.com"+temp2)
 
+    print(f"end {i}")
 # print(link_dic)
 
 with open('link.json', 'w') as f : 
