@@ -5,11 +5,11 @@ import json
 link_dic = {}
 
 ## 문제갯수
-for i in range(1,994):
+for i in range(1,384):
     link_dic[i] = []
 
 ## 페이지 갯수
-for i in range(1,545):
+for i in range(1,547):
 
     html = Request("https://www.examtopics.com/discussions/amazon/"+str(i)+"/",headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})  
     webpage = urlopen(html).read()
@@ -31,8 +31,8 @@ for i in range(1,545):
         temp1 = link.text.strip()
         temp2 = link.get('href')
         temp3 = temp1.split()
-        if "Exam AWS Certified Cloud Practitioner" in temp1:
-            link_dic[int(temp3[8])].append("https://www.examtopics.com"+temp2)
+        if "Exam AWS Certified SysOps Administrator" in temp1:
+            link_dic[int(temp3[10])].append("https://www.examtopics.com"+temp2)
 
     print(f"end {i}")
 # print(link_dic)

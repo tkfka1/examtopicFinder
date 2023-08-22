@@ -6,7 +6,6 @@ with open('on.json', 'r') as f:
 
 print(data)
 
-
 def txt50(t):
     with open(f"output{t}.txt", 'w') as f:
         a = t
